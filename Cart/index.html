@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Chatbot do Cartório</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="logo-cart-of.png" type="image/x-icon" />
+</head>
+
+<body>
+  <header class="topo-cartorio">
+    <div class="container-topo">
+      <h1>Cartório Oficial de Registro Civil de Pessoas Naturais e Tabelião de Notas</h1>
+    </div>
+  </header>
+  
+
+  <div class="chatbot">
+    <div class="chat-header">🤖 Cartório Virtual</div>
+    <div class="chat-box" id="chat-box"></div>
+    <div class="chat-input">
+      <input type="text" id="user-input" placeholder="Digite sua pergunta..." />
+      <button onclick="sendMessage()">Enviar</button>
+      <div id="aa"></div>
+    </div>
+  </div>
+  <script src="chatbot.js"></script>
+
+
+
+  <nav class="menu-principal">
+    <ul>
+      <li class="has-submenu">
+        <a href="#">Notas</a>
+        <ul class="submenu">
+          <li><a href="procuracao.html">Procuração</a></li>
+          <li><a href="casamento.html">Casamento</a></li>
+          <li><a href="#">Escritura</a></li>
+        </ul>
+      </li>
+
+      <li class="has-submenu">
+        <a href="#">Registro Civil</a>
+        <ul class="submenu">
+          <li><a href="">Certidão de Casamento</a></li>
+          <li><a href="">Certidão de Nascimento</a></li>
+          <li><a href="">Certidão de Óbito</a></li>
+        </ul>
+      </li>
+      <li><a href="#sobre">Sobre</a></li>
+      <li><a href="#servicos">Serviços</a></li>
+      <li><a href="#contato">Contato</a></li>
+
+      <li><a href="#localizacao">Local</a></li>
+      <li><a href="https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709.htm" target="_blank">LGPD</a></li>
+    </ul>
+  </nav>
+
+
+
+
+  <main>
+    <section class="galeria-fotos">
+    <h2>Conheça o Cartório</h2>
+    <div class="carrossel">
+      <a href="sobre.html">
+        <img src="logo-cart-of.png" alt="Cartório 1" />
+      </a>
+      <a href="procuracao.html">
+        <img src="foto-catorio2.jpg" alt="Cartório 2" />
+      </a>
+      <a href="pagina3.html">
+        <img src="https://source.unsplash.com/600x400/?documents,desk" alt="Cartório 3" />
+      </a>
+      <a href="pagina4.html">
+        <img src="https://source.unsplash.com/600x400/?law,notary" alt="Cartório 4" />
+      </a>
+      <a href="pagina5.html">
+        <img src="https://source.unsplash.com/600x400/?office,reception" alt="Cartório 5" />
+      </a>
+    </div>
+    </section>
+
+
+    <section id="sobre">
+      <h2>Sobre o Cartório</h2>
+      <p>O Cartório Elias Fausto atua com responsabilidade e excelência, oferecendo serviços de registros e autenticações.</p>
+    </section>
+    
+
+    <section id="servicos">
+      <h2>Serviços</h2>
+      <ul>
+        <li>Reconhecimento de firma</li>
+        <li>Procurações</li>
+        <li>Casamento civil</li>
+        <li>Certidões</li>
+      </ul>
+    </section>
+
+    <section id="contato">
+      <h2>Contato</h2>
+      <p>Telefone: (19) 99999-9999<br>E-mail: contato@cartorioeliasfausto.com.br</p>
+    </section>
+    <section id="localizacao">
+      <h2>Localização</h2>
+      <p>Estamos localizados na Rua Exemplo, 123, Elias Fausto - SP.</p>
+      </section>
+    
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3671.4377262827966!2d-47.37496202504764!3d-23.044408479158456!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94c62b4d9972875d%3A0xed3c9ee992f4ece1!2sCart%C3%B3rio%20Of%20Reg%20Civil%20Pessoas%20Nat%20Tab%20Notas%20Munic%20Elias%20Fausto!5e0!3m2!1spt-BR!2sbr!4v1751494920898!5m2!1spt-BR!2sbr" width="600" height="450" style="border:0;" justify-content: center allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+</body>
+</html>
