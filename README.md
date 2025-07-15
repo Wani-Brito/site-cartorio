@@ -11,8 +11,6 @@ Este projeto consiste no desenvolvimento de um site institucional minimalista e 
 - [Funcionalidades](#funcionalidades)  
 - [Conceitos de UX Design](#conceitos-de-ux-design)  
 - [Como Executar Localmente](#como-executar-localmente)  
-- [Contribuição](#contribuição)  
-- [Licença](#licença)  
 - [Contato](#contato)  
 
 ---
@@ -49,6 +47,13 @@ O site foi pensado para oferecer uma experiência simples e intuitiva, com desig
 - **Acessibilidade:** Inclusão de recursos para todos os perfis de usuários.  
 - **Feedback Visual:** Indicações claras nas interações.  
 - **Responsividade:** Adaptação perfeita a qualquer tela.
+
+---
+---
+
+## Contato
+
+-   email: wanessa.britosto@gmail.com
 
 ---
 
