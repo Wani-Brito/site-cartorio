@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <title>Procuração - Cartório Elias Fausto</title>
   <link rel="stylesheet" href="style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 </head>
 <body>
   <header class="topo-cartorio">
@@ -16,12 +17,11 @@
     <ul>
       <li class="has-submenu">
         <a href="#">Notas</a>
-    <ul class="submenu">
-            <li><a href="procuracao.html">Procuração</a></li>
-            <li><a href="casamento.html" >Casamento</a></li>
-            <li><a href="#">Escritura</a></li>
-    </ul>
-
+        <ul class="submenu">
+          <li><a href="procuracao.html">Procuração</a></li>
+          <li><a href="casamento.html">Casamento</a></li>
+          <li><a href="#">Escritura</a></li>
+        </ul>
       </li>
       <li><a href="index.html">Home</a></li>
       <li><a href="index.html">Sobre</a></li>
@@ -32,12 +32,111 @@
 
   <main>
     <section>
-      <h2>Procuração</h2>
-      <p>A procuração é um documento que permite a uma pessoa autorizar outra a representá-la em diversos atos da vida civil.</p>
-      <p>Existem diferentes tipos de procuração: pública, particular, com poderes específicos ou gerais. A escolha depende do ato desejado.</p>
-      
-      <a href="" download class="chat-btn">📄 Baixar Modelo de Procuração</a>
+      <h2>O que é uma Procuração?</h2>
+      <p class="descricao">
+        A <strong>procuração</strong> é um documento legal pelo qual uma pessoa (<em>outorgante</em>) autoriza outra pessoa (<em>procurador</em>) a agir em seu nome para realizar determinados atos ou negócios. É como dar “permissão formal” para que alguém possa te representar em situações específicas.
+      </p>
+
+      <h2>Para que serve:</h2>
+      <ul>
+        <li>Receber documentos;</li>
+        <li>Assinar contratos;</li>
+        <li>Resolver questões bancárias;</li>
+        <li>Representar em cartórios, órgãos públicos, entre outros.</li>
+      </ul>
+
+      <h2>Tipos de Procuração</h2>
+      <ul>
+        <li><strong>Procuração Pública:</strong> Feita no cartório, aceita em praticamente qualquer lugar.</li>
+        <li><strong>Procuração Particular:</strong> Feita em papel comum, sem necessidade de cartório - apenas para reconhecimento de firma - saiba mais com o nosso chatbot.</li>
+        <li><strong>Procuração com Poderes Específicos:</strong> Autoriza alguém para um ato bem específico, como vender um carro.</li>
+        <li><strong>Procuração Geral:</strong> Permite representação em várias situações.</li>
+      </ul>
+
+      <p><strong>Atenção:</strong> A procuração pode ser cancelada a qualquer momento e tem validade conforme definido no documento.</p>
+
+      <a href="#" download class="botao-download">📄 Baixar Modelo de Procuração</a>
+    </section>
+
+    <section id="procuracao">
+      <h2>Dúvidas frequentes</h2>
+      <div id="cards-procuracao">
+        <a href="#" class="card-link" onclick="abrirModal('modalDocumentos')" tabindex="0">
+          <img src="documentos.jpg" alt="Documentos necessários" />
+          <p>Documentos necessários</p>
+        </a>
+        <a href="#" class="card-link" onclick="abrirModal('modalTipos')" tabindex="0">
+          <img src="inss.jpg" alt="Procuração própria INSS/aposentadoria" />
+          <p>Procuração própria para INSS - ISENTA DE TAXA</p>
+        </a>
+      </div>
+
+      <!-- Modal Documentos -->
+      <div id="modalDocumentos" class="modal" role="dialog" aria-modal="true" aria-labelledby="tituloDocumentos" tabindex="-1">
+        <div class="modal-conteudo">
+          <button class="fechar" onclick="fecharModal('modalDocumentos')" aria-label="Fechar modal">&times;</button>
+          <h2 id="tituloDocumentos">Documentos necessários para a Procuração</h2>
+          <ul>
+            <li>RG, CPF e certidão de registro civil do outorgante</li>
+            <li>RG e CPF do procurador</li>
+            <li>Qualificação completa de ambos</li>
+            <li>Se for para contas bancárias: número da conta e agência</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Modal Tipos -->
+      <div id="modalTipos" class="modal" role="dialog" aria-modal="true" aria-labelledby="tituloTipos" tabindex="-1">
+        <div class="modal-conteudo">
+          <button class="fechar" onclick="fecharModal('modalTipos')" aria-label="Fechar modal">&times;</button>
+          <h2 id="tituloTipos">Procuração INSS</h2>
+          <ul>
+            <li>A procuração para o INSS é feita pelo cartório de forma gratuita</li>
+            <li>Basta trazer os documentos ao cartório para darmos entrada - saiba mais em <a href="#procuracao">Documentos necessários</a></li>
+            <li>Esse tipo de procuração dá poderes de APENAS fazer movimentação de contas bancárias de benefícios</li>
+            <li>Procuração Geral</li>
+          </ul>
+        </div>
+      </div>
     </section>
   </main>
+
+  <footer class="rodape-cartorio">
+    <p>&copy; 2025 Cartório Elias Fausto. Todos os direitos reservados.</p>
+    <p>por: wanessa.britosto@gmail</p>
+  </footer>
+
+  <script>
+    function abrirModal(id) {
+      const modal = document.getElementById(id);
+      modal.style.display = 'flex';
+      modal.focus();
+    }
+
+    function fecharModal(id) {
+      const modal = document.getElementById(id);
+      modal.style.display = 'none';
+    }
+
+    window.addEventListener('click', function(event) {
+      const modais = document.querySelectorAll('.modal');
+      modais.forEach(modal => {
+        if (event.target === modal) {
+          modal.style.display = 'none';
+        }
+      });
+    });
+
+    window.addEventListener('keydown', function(event) {
+      if (event.key === "Escape") {
+        const modais = document.querySelectorAll('.modal');
+        modais.forEach(modal => {
+          if (modal.style.display === 'flex') {
+            modal.style.display = 'none';
+          }
+        });
+      }
+    });
+  </script>
 </body>
 </html>

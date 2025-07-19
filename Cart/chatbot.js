@@ -55,6 +55,16 @@ const intents = {
     "bom dia",  
     "boa tarde",
     "boa noite"  
+  ],
+  "segunda via": [
+    "segunda via casamento",
+    "segunda via óbito",
+    "segunda via nascimento",
+    "segunda via certidão",
+    "segunda via registro civil",
+    "segunda via",
+    "segunda via documento",
+    
   ]
 };
 
@@ -111,7 +121,6 @@ function respondToUser(message) {
   }
 
   else if (intent === "valor firma") {
-    // Redireciona para submenu específico
     respondToUser("valor reconhecimento firma");
   }
 
@@ -143,14 +152,25 @@ function respondToUser(message) {
     addMessage("Bot", "📞 Fale com a gente pelo WhatsApp: (19) 99999-9999.");
   }
 
-  else if (message.includes("documento")) {
+
+  else if (intent === "segunda via") {
     const msg = document.createElement("div");
     msg.innerHTML = `
-      <strong>Bot:</strong> 📄 Qual documento deseja saber?<br/><br/>
-      <button onclick="respondToUser('documento casamento')" class="chat-btn">👰 Casamento</button>
-      <button onclick="respondToUser('documento firma')" class="chat-btn">✍️ Firma</button>
+      <strong>Bot:</strong> ✍️ Você gostaria da informação sobre qual segunda via?<br/><br/>
+      <button onclick="respondToUser('casamento')" class="chat-btn">Casamento</button>
+      <button onclick="respondToUser('obito')" class="chat-btn">Óbito</button>
+      <button onclick="respondToUser('nascimento')" class="chat-btn">Nascimento</button>
     `;
     chatBox.appendChild(msg);
+  }
+  else if (message.includes("obito")) {
+    addMessage("Bot", "xx");
+  }
+  else if (message.includes("nascimento")) {
+    addMessage("Bot", "xx");
+  }
+  else if (message.includes("casamento")) {
+    addMessage("Bot", "xx");
   }
 
   else if (message.includes("valor") || message.includes("valores")) {
@@ -163,6 +183,7 @@ function respondToUser(message) {
     `;
     chatBox.appendChild(msg);
   }
+
 
   else {
     addMessage("Bot", "❓ Desculpe, não entendi. Você pode perguntar sobre: documentos, horário, valores ou falar com um atendente.");
@@ -180,6 +201,7 @@ function botoes() {
     <button onclick="respondToUser('horário')" class="chat-btn">🕒 Horário</button>
     <button onclick="respondToUser('valor')" class="chat-btn">💰 Valores</button>
     <button onclick="respondToUser('atendente')" class="chat-btn">📞 Atendente</button>
+    <button onclick="respondToUser('segunda via')" class="chat-btn">Segunda via</button>
   `;
   chatBox.appendChild(msg);
   chatBox.scrollTop = chatBox.scrollHeight;
