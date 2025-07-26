@@ -14,6 +14,13 @@ const intents = {
     "reconhecimento de firma",  
     
   ],
+  "documento": [
+    "documento",
+    "documentos",
+    "documento necessário",
+    "precisa de quais documentos",
+    "quais documentos"
+  ],
   "valor casamento": [
     "valor casamento",
     "preço casamento",
@@ -153,25 +160,60 @@ function respondToUser(message) {
   }
 
 
-  else if (intent === "segunda via") {
+  else if (message.includes("primeira via") || message.includes("segunda via") || message.includes("certidao")) {
     const msg = document.createElement("div");
     msg.innerHTML = `
-      <strong>Bot:</strong> ✍️ Você gostaria da informação sobre qual segunda via?<br/><br/>
-      <button onclick="respondToUser('casamento')" class="chat-btn">Casamento</button>
-      <button onclick="respondToUser('obito')" class="chat-btn">Óbito</button>
-      <button onclick="respondToUser('nascimento')" class="chat-btn">Nascimento</button>
+      <strong>Bot:</strong> 📄 Você deseja a <strong>primeira</strong> ou <strong>segunda via</strong> da certidão?<br/><br/>
+      <button onclick="respondToUser('primeira via')" class="chat-btn">Primeira via</button>
+      <button onclick="respondToUser('segunda via')" class="chat-btn">Segunda via</button>
     `;
     chatBox.appendChild(msg);
+      if (message.includes("primeira via")) {
+        const msg = document.createElement("div");
+        msg.innerHTML = `
+          <strong>Bot:</strong> ✍️ De qual certidão você precisa a primeira via?<br/><br/>
+          <button onclick="respondToUser('primeira-casamento')" class="chat-btn">Casamento</button>
+          <button onclick="respondToUser('primeira-obito')" class="chat-btn">Óbito</button>
+          <button onclick="respondToUser('primeira-nascimento')" class="chat-btn">Nascimento</button>
+        `;
+        chatBox.appendChild(msg);
+      }
+
+      else if (message.includes("segunda via")) {
+        const msg = document.createElement("div");
+        msg.innerHTML = `
+          <strong>Bot:</strong> ✍️ De qual certidão você precisa a segunda via?<br/><br/>
+          <button onclick="respondToUser('segunda-casamento')" class="chat-btn">Casamento</button>
+          <button onclick="respondToUser('segunda-obito')" class="chat-btn">Óbito</button>
+          <button onclick="respondToUser('segunda-nascimento')" class="chat-btn">Nascimento</button>
+        `;
+        chatBox.appendChild(msg);
+      }
   }
-  else if (message.includes("obito")) {
-    addMessage("Bot", "xx");
-  }
-  else if (message.includes("nascimento")) {
-    addMessage("Bot", "xx");
-  }
-  else if (message.includes("casamento")) {
-    addMessage("Bot", "xx");
-  }
+
+    else if (message.includes("primeira-casamento")) {
+      addMessage("Bot", "👰 A primeira via da certidão de casamento é emitida no ato, após o registro. Consulte o cartório ou clique na Aba de Registro Civis - Casamento");
+    }
+    else if (message.includes("primeira-obito")) {
+      addMessage("Bot", "🕊️ A primeira via da certidão de óbito é emitida gratuitamente no momento do registro.");
+    }
+    else if (message.includes("primeira-nascimento")) {
+      addMessage("Bot", "👶 A primeira via da certidão de nascimento é gratuita e emitida diretamente no cartório e não há custos.");
+    }
+
+    else if (message.includes("segunda-casamento")) {
+      addMessage("Bot", "📄 A segunda via da certidão de casamento custa R$ 46,23 + (valor de cada averbação = R$23,20). Leve os principais dados do casamento.");
+    }
+    else if (message.includes("segunda-obito")) {
+      addMessage("Bot", "📄 A segunda via da certidão de óbito custa R$ 46,23. Leve os principais dados do falescido.");
+    }
+    else if (message.includes("segunda-nascimento")) {
+      addMessage("Bot", "📄 A segunda via da certidão de nascimento custa R$ 46,23 + (valor de cada averbação = R$23,20). Leve os principais dados do casamento");
+    }
+    else if (message.includes("documento certidao")) {
+      addMessage("Bot", "📜 Para solicitar certidões (nascimento, casamento ou óbito), traga um documento com foto e os dados do registro desejado.");
+    }
+
 
   else if (message.includes("valor") || message.includes("valores")) {
     const msg = document.createElement("div");
@@ -183,6 +225,23 @@ function respondToUser(message) {
     `;
     chatBox.appendChild(msg);
   }
+  else if (intent === "documento") {
+    const msg = document.createElement("div");
+    msg.innerHTML = `
+      <strong>Bot:</strong> 📄 Sobre qual tipo de documento você quer saber?<br/><br/>
+      <button onclick="respondToUser('documento casamento')" class="chat-btn">👰 Casamento</button>
+      <button onclick="respondToUser('documento firma')" class="chat-btn">✍️ Firma</button>
+    `;
+    chatBox.appendChild(msg);
+    if (message.includes("documento casamento")) {
+      addMessage("Bot", "👰 É necessário a certidão de registro cívil atualizada, RG e CPF dos noivos, e o formulário preenchido (clique na aba de Registro Civil - Casamento - e baixe o Formulário)");
+    }
+    else if (message.includes("documento firma")) {
+      addMessage("Bot", "Documento com foto (RG ou CNH) e CPF. A firma deve estar aberta no cartório.");
+    }
+  }
+  
+
 
 
   else {
@@ -192,7 +251,6 @@ function respondToUser(message) {
   chatBox.scrollTop = chatBox.scrollHeight;
 }
 
-// Mensagem automática ao abrir
 function botoes() {
   const msg = document.createElement("div");
   msg.innerHTML = `
@@ -201,7 +259,7 @@ function botoes() {
     <button onclick="respondToUser('horário')" class="chat-btn">🕒 Horário</button>
     <button onclick="respondToUser('valor')" class="chat-btn">💰 Valores</button>
     <button onclick="respondToUser('atendente')" class="chat-btn">📞 Atendente</button>
-    <button onclick="respondToUser('segunda via')" class="chat-btn">Segunda via</button>
+    <button onclick="respondToUser('certidao')" class="chat-btn">📜 Certidões</button>
   `;
   chatBox.appendChild(msg);
   chatBox.scrollTop = chatBox.scrollHeight;

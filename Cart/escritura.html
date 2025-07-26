@@ -23,6 +23,12 @@
           <li><a href="escritura.html">Escritura</a></li>
         </ul>
       </li>
+      <li class="has-submenu">
+        <a href="#">Registro Civil</a>
+        <ul class="submenu">
+          <li><a href="registrocivl.html">1° e 2° via de certidão</a></li>
+        </ul>
+      </li>
       <li><a href="index.html">Home</a></li>
       <li><a href="index.html">Sobre</a></li>
       <li><a href="index.html">Serviços</a></li>
@@ -63,10 +69,144 @@
         <li>Registro da escritura, quando necessário</li>
       </ol>
 
+     <section id="escrituras">
+        <h2>Tipos de Escrituras</h2>
+        <div id="cards-escrituras">
+          <a href="#" class="card-link" onclick="abrirModal('modalCompraVenda')">
+            <img src="casa.jpeg" alt="Compra e Venda" />
+            <p>Compra e Venda</p>
+          </a>
+          <a href="#" class="card-link" onclick="abrirModal('modalDoacao')">
+            <img src="escritura2.jpg" alt="Doação" />
+            <p>Doação</p>
+          </a>
+          <a href="#" class="card-link" onclick="abrirModal('modalDivorcio')">
+            <img src="escritura3.jpg" alt="Divórcio" />
+            <p>Divórcio</p>
+          </a>
+          <a href="#" class="card-link" onclick="abrirModal('modalUsucapiao')">
+            <img src="escritura4.jpg" alt="Usucapião" />
+            <p>Usucapião</p>
+          </a>
+          <a href="#" class="card-link" onclick="abrirModal('modalInventario')">
+            <img src="escritura5.jpg" alt="Inventário" />
+            <p>Inventário</p>
+          </a>
+          <a href="#" class="card-link" onclick="abrirModal('modalSociedade')">
+            <img src="escritura6.jpg" alt="Sociedade" />
+            <p>Sociedade</p>
+          </a>
+        </div>
+
+       <!-- Modal Compra e Venda -->
+      <div id="modalCompraVenda" class="modal" role="dialog" aria-modal="true" aria-labelledby="tituloCompraVenda" style="display:none;">
+        <div class="modal-conteudo">
+          <button class="fechar" onclick="fecharModal('modalCompraVenda')" aria-label="Fechar modal">&times;</button>
+          <h2 id="tituloCompraVenda">Escritura de Compra e Venda</h2>
+          <ul>
+            <li>RG e CPF das partes envolvidas</li>
+            <li>Documentos do imóvel (matrícula, IPTU)</li>
+            <li>Comprovante de endereço</li>
+            <li>Certidões negativas de ônus e débitos</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Modal Doação -->
+      <div id="modalDoacao" class="modal" role="dialog" aria-modal="true" aria-labelledby="tituloDoacao" style="display:none;">
+        <div class="modal-conteudo">
+          <button class="fechar" onclick="fecharModal('modalDoacao')" aria-label="Fechar modal">&times;</button>
+          <h2 id="tituloDoacao">Escritura de Doação</h2>
+          <ul>
+            <li>RG e CPF do doador e donatário</li>
+            <li>Descrição detalhada do bem doado</li>
+            <li>Certidão do imóvel, se aplicável</li>
+            <li>Especificar se há cláusulas como usufruto ou reversão</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Modal Divórcio -->
+      <div id="modalDivorcio" class="modal" role="dialog" aria-modal="true" aria-labelledby="tituloDivorcio" style="display:none;">
+        <div class="modal-conteudo">
+          <button class="fechar" onclick="fecharModal('modalDivorcio')" aria-label="Fechar modal">&times;</button>
+          <h2 id="tituloDivorcio">Escritura de Divórcio</h2>
+          <ul>
+            <li>Certidão de casamento</li>
+            <li>RG e CPF do casal</li>
+            <li>Partilha de bens (se houver)</li>
+            <li>Declaração de inexistência de filhos menores ou incapazes</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Modal Usucapião -->
+      <div id="modalUsucapiao" class="modal" role="dialog" aria-modal="true" aria-labelledby="tituloUsucapiao" style="display:none;">
+        <div class="modal-conteudo">
+          <button class="fechar" onclick="fecharModal('modalUsucapiao')" aria-label="Fechar modal">&times;</button>
+          <h2 id="tituloUsucapiao">Escritura de Usucapião</h2>
+          <ul>
+            <li>Documentos de posse do imóvel (contas, recibos)</li>
+            <li>Declarações de vizinhos/testemunhas</li>
+            <li>Planta e memorial descritivo</li>
+            <li>Certidões negativas</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Modal Inventário -->
+      <div id="modalInventario" class="modal" role="dialog" aria-modal="true" aria-labelledby="tituloInventario" style="display:none;">
+        <div class="modal-conteudo">
+          <button class="fechar" onclick="fecharModal('modalInventario')" aria-label="Fechar modal">&times;</button>
+          <h2 id="tituloInventario">Escritura de Inventário</h2>
+          <ul>
+            <li>Certidão de óbito do falecido</li>
+            <li>Documentos pessoais dos herdeiros</li>
+            <li>Relação e documentos dos bens deixados</li>
+            <li>Certidões negativas e declaração de inexistência de testamento</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Modal Sociedade -->
+      <div id="modalSociedade" class="modal" role="dialog" aria-modal="true" aria-labelledby="tituloSociedade" style="display:none;">
+        <div class="modal-conteudo">
+          <button class="fechar" onclick="fecharModal('modalSociedade')" aria-label="Fechar modal">&times;</button>
+          <h2 id="tituloSociedade">Escritura de Constituição de Sociedade</h2>
+          <ul>
+            <li>Documentos pessoais dos sócios</li>
+            <li>Contrato social elaborado</li>
+            <li>Definição de capital, cotas e administração</li>
+            <li>Comprovante de endereço da sede</li>
+          </ul>
+        </div>
+      </div>
+
+    </section>
 
     
     </section>
   </main>
+  <script>
+    function abrirModal(id) {
+      document.getElementById(id).style.display = 'flex';
+    }
+
+    function fecharModal(id) {
+      document.getElementById(id).style.display = 'none';
+    }
+
+
+    // Fecha o modal ao clicar fora do conteúdo
+    window.addEventListener('click', function(event) {
+      const modais = document.querySelectorAll('.modal');
+      modais.forEach(modal => {
+        if (event.target === modal) {
+          modal.style.display = 'none';
+        }
+      });
+    });
+  </script>
 
   <footer class="rodape-cartorio">
     <p>&copy; 2025 Cartório Elias Fausto. Todos os direitos reservados.</p>
