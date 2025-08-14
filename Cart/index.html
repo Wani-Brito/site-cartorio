@@ -5,50 +5,62 @@
   <title>Cartório Oficial de Registro Civil de Pessoas Naturais e Tabelião de Notas de Elias Fausto</title>
   <link rel="stylesheet" href="style.css" />
   <link rel="icon" href="logo-cart-of.png" type="image/x-icon" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 </head>
 
 <body>
+  <button id="toggle-dark-mode" style="position: fixed; top: 10px; right: 10px; z-index: 9999;">🌙 Modo Escuro</button>
   <header class="topo-cartorio">
     <div class="container-topo">
-      <h1 id="title">Cartório Oficial de Registro Civil de Pessoas Naturais e Tabelião de Notas de Elias Fausto</h1>
+      <h1 id="title">Oficial de Registro Civil das Pessoas Naturais e Tabelião de Notas de Elias Fausto/SP</h1>
   </header>
   
 
-  <div class="chatbot">
+  <div class="chat-widget" style="height: 480px;"> 
+    <div class="chat-resize-top" title="Arraste para redimensionar altura"></div>
     <div class="chat-header">🤖 Cartório Virtual</div>
     <div class="chat-box" id="chat-box"></div>
     <div class="chat-input">
       <input type="text" id="user-input" placeholder="Digite sua pergunta..." />
       <button onclick="sendMessage()">Enviar</button>
-      <div id="aa"></div>
     </div>
+    <div class="chat-resize-left" title="Arraste para redimensionar largura"></div>
   </div>
+  <div class="resizer"></div>
   <script src="chatbot.js"></script>
+  <script>
+    const btn = document.getElementById('toggle-dark-mode');
+    btn.addEventListener('click', function() {
+      document.body.classList.toggle('dark-mode');
+      btn.textContent = document.body.classList.contains('dark-mode') ? '☀️ Modo Claro' : '🌙 Modo Escuro';
+    });
+  </script>
 
 
 
   <nav class="menu-principal">
     <ul>
-      <li class="has-submenu">
-        <a href="#">Notas</a>
+      <li class="has-submenu" style="font-size: 16px;">
+        <a href="#">NOTAS</a>
         <ul class="submenu">
-          <li><a href="procuracao.html">Procuração</a></li>
-          <li><a href="escritura.html">Escritura</a></li>
+          <li><a href="procuracao.html">PROCURAÇÃO</a></li>
+          <li><a href="escritura.html">ESCRITURA</a></li>
         </ul>
       </li>
 
-      <li class="has-submenu">
-        <a href="#">Registro Civil</a>
+      <li class="has-submenu" style="font-size: 16px;">
+        <a href="#">REGISTRO CIVIL</a>
         <ul class="submenu">
-          <li><a href="registrocivl.html">1° e 2° via de certidão</a></li>
+          <li><a href="casamento.html">CASAMENTO</a></li>
+          <li><a href="registrocivl.html">1° E 2° VIA DE CERTIDÃO</a></li>
         </ul>
       </li>
-      <li><a href="#sobre">Sobre</a></li>
-      <li><a href="#servicos">Serviços</a></li>
-      <li><a href="#contato">Contato</a></li>
-
-      <li><a href="#localizacao">Local</a></li>
-      <li><a href="https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709.htm" target="_blank">LGPD</a></li>
+      <li style="font-size: 16px;"><a href="#sobre">SOBRE</a></li>
+      <li style="font-size: 16px;"><a href="#horario">HORÁRIOS</a></li>
+      <li style="font-size: 16px;"><a href="#servicos">SERVIÇOS</a></li>
+      <li style="font-size: 16px;"><a href="#contato">CONTATO</a></li>
+      <li style="font-size: 16px;"><a href="#localizacao">LOCAL</a></li>
+      <li style="font-size: 16px;"><a href="https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709.htm" target="_blank">LGPD</a></li>
     </ul>
   </nav>
 
@@ -82,10 +94,11 @@
       <h2>Sobre o Cartório</h2>
 
       <p style="font-size: 20px;"><strong>O Cartório de Registro Civil e Tabelionato de Notas de Elias Fausto</strong> atua com dedicação e responsabilidade para garantir segurança jurídica e praticidade aos cidadãos. <i>Agora também com um site moderno e acessível.</i></p>
+      <p style="font-size: 20px;">Desde de 1926 em busca de te atender da melhor maneira!</p>
       <p style="font-size: 20px;">Prestamos serviços essenciais como registros de nascimento, casamento e óbito, além da lavratura de procurações, escrituras (compra, venda, doação, permuta), reconhecimentos de firma e autenticações de documentos.</p>
-      <p style="font-size: 20px;"> O cartório está sob a responsabilidade do <strong>Tabelião Reinaldo de Oliveira Caldas</strong>, profissional experiente e comprometido com a transparência, legalidade e excelência nos serviços notariais e registrais.</p>
+      <p style="font-size: 20px;"> O cartório está sob a responsabilidade do <strong>Tabelionato de Reinaldo de Oliveira Caldas</strong>, profissional experiente e comprometido com a transparência, legalidade e excelência nos serviços notariais e registrais.</p>
       <h3 style="font-size: 30px;">Seja bem-vindo!</h3>
-</section>
+    </section>
 
 
     <section id="servicos">
@@ -104,6 +117,15 @@
       </p>
     </section>
 
+    <section id="horario">
+      <h2>Horário de atendimento</h2>
+      <ul style="font-size: 20px; list-style-type: disc; margin-left: 20px;">
+        <li>De Segunda à Sexta: <strong>8h30 às 16h30.</strong></li>
+        <li>Com pausa das <strong>12h00 às 13h00.</li>
+        <li>Aos sábados os atendimentos são voltados apenas para Casamentos.</li>
+      </ul>
+    </section>
+
     <section id="contato">
       <h2>Contato</h2>
       <p>Telefone: (19)    <br>E-mail: cartorioeliasfausto@gmail.com</p>
@@ -111,7 +133,7 @@
     </section>
     <section id="localizacao">
       <h2>Localização</h2>
-      <p>Rua Vinte e Quatro de Fevereiro, 140 - Elias Fausto, SP, 13350-000</p>
+      <p style="font-size: 20px;">Rua Vinte e Quatro de Fevereiro, nº140, Elias Fausto-SP, 13350-000.</p>
       </section>
     
     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3671.4377262827966!2d-47.37496202504764!3d-23.044408479158456!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94c62b4d9972875d%3A0xed3c9ee992f4ece1!2sCart%C3%B3rio%20Of%20Reg%20Civil%20Pessoas%20Nat%20Tab%20Notas%20Munic%20Elias%20Fausto!5e0!3m2!1spt-BR!2sbr!4v1751494920898!5m2!1spt-BR!2sbr" width="600" height="450" style="border:0;" justify-content: center allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>

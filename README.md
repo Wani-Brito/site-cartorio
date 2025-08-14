@@ -1,4 +1,7 @@
-# Site Cartório - Elias Fausto
+zadas](#tecnologias-utilizadas)  
+- [Funcionalidades](#funcionalidades)  
+- [Conceitos de UX Design](#conceitos-de-ux-design)  
+- [Como Executar Localmente](## Site Cartório - Elias Fausto
 
 Este projeto consiste no desenvolvimento de um site institucional minimalista e responsivo para um cartório localizado em Elias Fausto. O site tem como objetivo facilitar o acesso dos usuários a informações essenciais sobre serviços, contato e localização, transmitindo profissionalismo, confiança e modernidade.
 
@@ -7,10 +10,7 @@ Este projeto consiste no desenvolvimento de um site institucional minimalista e 
 ## Índice
 
 - [Descrição](#descrição)  
-- [Tecnologias Utilizadas](#tecnologias-utilizadas)  
-- [Funcionalidades](#funcionalidades)  
-- [Conceitos de UX Design](#conceitos-de-ux-design)  
-- [Como Executar Localmente](#como-executar-localmente)  
+- [Tecnologias Utilicomo-executar-localmente)  
 - [Contato](#contato)  
 
 ---

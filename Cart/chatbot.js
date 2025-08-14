@@ -1,7 +1,87 @@
+
+document.addEventListener('DOMContentLoaded', function() {
+  const input = document.getElementById('user-input');
+  if (input) {
+    input.addEventListener('input', function(e) {
+      // Aceita apenas letras (maiúsculas/minúsculas), espaços e acentos
+      this.value = this.value.replace(/[^\p{L}\s]/gu, '');
+    });
+  }
+});
+document.addEventListener('DOMContentLoaded', function() {
+  const chatWidget = document.querySelector('.chat-widget');
+  const resizeBarLeft = document.querySelector('.chat-resize-left');
+  let isResizingLeft = false;
+  let startX = 0;
+  let startWidth = 0;
+  let startLeft = 0;
+
+  if (chatWidget && resizeBarLeft) {
+    resizeBarLeft.addEventListener('mousedown', function(e) {
+      isResizingLeft = true;
+      startX = e.clientX;
+      startWidth = parseInt(window.getComputedStyle(chatWidget).width, 10);
+      startLeft = chatWidget.offsetLeft;
+      document.body.style.userSelect = 'none';
+    });
+
+    document.addEventListener('mousemove', function(e) {
+      if (isResizingLeft) {
+        const dx = e.clientX - startX;
+        const newWidth = startWidth - dx;
+        if (newWidth >= 200) {
+          chatWidget.style.width = newWidth + 'px';
+          chatWidget.style.left = (startLeft + dx) + 'px';
+        }
+      }
+    });
+
+    document.addEventListener('mouseup', function() {
+      isResizingLeft = false;
+      document.body.style.userSelect = '';
+    });
+  }
+});
+// Redimensionar altura do chat pelo topo (ajusta altura e top)
+document.addEventListener('DOMContentLoaded', function() {
+  const chatWidget = document.querySelector('.chat-widget');
+  const resizeTop = document.querySelector('.chat-resize-top');
+  let isResizing = false;
+  let startY = 0;
+  let startHeight = 0;
+  const startTop = parseInt(document.defaultView.getComputedStyle(chatWidget).top, 10) || chatWidget.offsetTop;
+
+  if (chatWidget && resizeTop) {
+    resizeTop.addEventListener('mousedown', function(e) {
+      isResizing = true;
+      startY = e.clientY;
+      startHeight = parseInt(window.getComputedStyle(chatWidget).height, 10);
+      document.body.style.userSelect = 'none';
+    });
+
+    document.addEventListener('mousemove', function(e) {
+      if (isResizing) {
+        const delta = e.clientY - startY;
+        let newHeight = startHeight - delta;
+        let newTop = startTop + delta;
+        if (newHeight > 200) {
+          chatWidget.style.height = newHeight + 'px';
+          chatWidget.style.top = newTop + 'px';
+        }
+      }
+    });
+
+    document.addEventListener('mouseup', function() {
+      isResizing = false;
+      document.body.style.userSelect = '';
+    });
+  }
+});
 const chatBox = document.getElementById("chat-box");
 const userInput = document.getElementById("user-input");
+const chatWidget = document.querySelector(".chat-widget");
+const chatHeader = document.querySelector(".chat-header");
 
-// Palavras-chave inteligentes
 const intents = {
   "valor reconhecimento firma": [
     "valor reconhecimento",
@@ -9,59 +89,107 @@ const intents = {
     "quanto custa reconhecimento de firma",
     "preço firma assinatura",
     "firma valor assinatura",
-    "firma", 
+    "firma",
     "reconhecimento firma",
-    "reconhecimento de firma",  
-    
+    "reconhecimento de firma",
+    "preço reconhecimento de assinatura",
+    "quanto paga pra reconhecer firma",
+    "tarifa reconhecimento firma",
+    "quanto é o reconhecimento de firma",
+    "quanto custa firma reconhecida",
+    "firma reconhecida valor"
   ],
   "documento": [
     "documento",
     "documentos",
     "documento necessário",
     "precisa de quais documentos",
-    "quais documentos"
+    "quais documentos",
+    "documentação",
+    "o que preciso levar",
+    "papéis necessários",
+    "preciso levar quais documentos",
+    "qual papel eu levo",
+    "que documentos são exigidos"
+  ],
+  "horário": [
+    "horário",
+    "horários",
+    "qual o horário de funcionamento",
+    "horário de atendimento",
+    "horário de abertura",
+    "horário de fechamento",
+    "horário de expediente",
+    "horário de trabalho",
+    "horário de funcionamento cartório",
+    "horário de funcionamento cartório civil",
+    "horário de funcionamento cartório notarial",
   ],
   "valor casamento": [
     "valor casamento",
     "preço casamento",
     "quanto custa o casamento",
-    "casamento valor"
+    "casamento valor",
+    "taxa de casamento",
+    "quanto pago pra casar",
+    "qual o valor do registro de casamento",
+    "quanto é o casamento civil"
   ],
   "valor firma": [
     "valor firma",
     "preço firma",
     "quanto custa firma",
     "firma valor",
-    "valor reconhceciento firma",
+    "valor reconhceciento firma", 
     "firma assinatura",
     "firma reconhecimento",
-    
+    "valor pra abrir firma",
+    "quanto é pra reconhecer firma",
+    "quanto é abrir uma firma"
   ],
   "valor certidao": [
     "valor certidao",
     "preço certidão",
     "quanto custa certidão",
-    "certidão valor"
+    "certidão valor",
+    "taxa certidão",
+    "qual valor da certidão de nascimento",
+    "valor segunda via certidão",
+    "certidão quanto custa"
   ],
   "documento casamento": [
+    "casamento",
     "documento casamento",
     "papéis casamento",
     "quais documentos para casar",
-    "casamento documento"
+    "casamento documento",
+    "documentos pra casar no civil",
+    "o que precisa para casamento",
+    "documentação necessária casamento",
+    "registro casamento documentos"
   ],
   "documento firma": [
     "documento firma",
     "abrir firma",
     "reconhecimento documentos",
-    "firma documento"
+    "firma documento",
+    "o que precisa para abrir firma",
+    "documentação para firma",
+    "documentos abrir firma",
+    "documento reconhecimento de firma"
   ],
   "Olá": [
     "ola",
     "olá",
     "oi",
-    "bom dia",  
+    "bom dia",
     "boa tarde",
-    "boa noite"  
+    "boa noite",
+    "e aí",
+    "salve",
+    "oii",
+    "olaaa",
+    "alô"
   ],
   "segunda via": [
     "segunda via casamento",
@@ -71,8 +199,34 @@ const intents = {
     "segunda via registro civil",
     "segunda via",
     "segunda via documento",
-    
+    "perdi minha certidão",
+    "como tirar segunda via",
+    "preciso de outra via",
+    "duplicado certidão",
+    "emitir segunda via"
+  ],
+  "escrituras": [
+    "escritura",
+    "escrituras",
+    "fazer escritura",
+    "registro escritura",
+    "documento escritura",
+    "escritura pública",
+    "escritura de compra e venda",
+    "escritura de doação",
+    "escritura de inventário"
+  ],
+  "procuracao": [
+    "procuração",
+    "fazer procuração",
+    "registro procuração",
+    "documento procuração",
+    "procuração pública",
+    "como fazer procuração",
+    "modelo de procuração",
+    "preciso de procuração"
   ]
+
 };
 
 userInput.addEventListener("keypress", function(event) {
@@ -152,11 +306,18 @@ function respondToUser(message) {
   }
 
   else if (message.includes("horário")) {
-    addMessage("Bot", "🕒 Funcionamos de segunda a sexta, das 9h às 17h.");
+    addMessage("Bot", "🕒 Funcionamos de segunda a sexta, das 8h30 às 16h30. O horário de almoço é das 12h00 às 13h00. Aos sábados os atendimentos são voltados apenas para casamentos. ");
   }
 
   else if (message.includes("atendente")) {
     addMessage("Bot", "📞 Fale com a gente pelo WhatsApp: (19) 99999-9999.");
+  }
+
+  else if (message.includes("escritura")) {
+    addMessage("Bot", "Para mais informações sobre escrituras, consulte a aba de Notas.");
+  }
+  else if (message.includes("procuracao")) {
+    addMessage("Bot", "Para mais informações sobre procuração, consulte a aba de Notas.");
   }
 
 
@@ -215,6 +376,7 @@ function respondToUser(message) {
     }
 
 
+
   else if (message.includes("valor") || message.includes("valores")) {
     const msg = document.createElement("div");
     msg.innerHTML = `
@@ -241,9 +403,6 @@ function respondToUser(message) {
     }
   }
   
-
-
-
   else {
     addMessage("Bot", "❓ Desculpe, não entendi. Você pode perguntar sobre: documentos, horário, valores ou falar com um atendente.");
   }
@@ -266,3 +425,30 @@ function botoes() {
 }
 
 window.onload = botoes;
+
+let isDragging = false, offsetX, offsetY;
+
+
+if (chatWidget && chatHeader) {
+  chatHeader.addEventListener('mousedown', function(e) {
+    isDragging = true;
+    offsetX = e.clientX - chatWidget.getBoundingClientRect().left;
+    offsetY = e.clientY - chatWidget.getBoundingClientRect().top;
+    chatWidget.style.transition = 'none';
+  });
+
+  document.addEventListener('mousemove', function(e) {
+    if (isDragging) {
+      chatWidget.style.left = (e.clientX - offsetX) + 'px';
+      chatWidget.style.top = (e.clientY - offsetY) + 'px';
+      chatWidget.style.right = 'auto';
+      chatWidget.style.bottom = 'auto';
+      chatWidget.style.position = 'fixed';
+    }
+  });
+
+  document.addEventListener('mouseup', function() {
+    isDragging = false;
+    chatWidget.style.transition = '';
+  });
+}
